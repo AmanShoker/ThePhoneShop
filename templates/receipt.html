@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage</title>
+    <style>
+
+      h1, h2 {
+        text-align: center;
+      }
+
+      img {
+        height: 360px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      body {
+        font-family: monospace;
+        font-size 18px;
+      }
+
+      input {
+        font-size: 23px;
+        background-color: black;
+        color: white;
+        display: block;
+        margin: 0 auto;
+      }
+
+      #message {
+        max-width: 1000px;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      #receipt {
+        border: solid;
+        border-width: 1px;
+        max-width: 300px;
+        margin: 0 auto;
+        margin-top: 10px;
+        padding: 10px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>The Phone Shop</h1>
+
+    <a href="/"><img src="/static/ThePhoneShop Banner.png"></a>
+
+    <p id="message">Thanks for the purchase. Please review your order details below.</p>
+
+    <div id="receipt">
+      <h2>Receipt</h2>
+
+      <p>Name: {{order['name']}}</p>
+      <p>Email: {{order['email']}}</p>
+      <p>Address: {{order['address']}}</p>
+      <p>Item: {{order['product-name']}}</p>
+      <p>Name: {{order['product-price']}}</p>
+
+      
+    </div>
+    </form>
+  </body>
+</html>

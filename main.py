@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -64,13 +64,24 @@ def homepage():
 @app.route("/browse-products")
 def browse_products():
   return render_template("/browse-products.html", products=PRODUCTS)
-  
-@app.route("/browse-products/product-page", methods=['POST'])@app.route("/browse-products/product-page", methods=['POST'])
-def product_page():
-    DATA = request.form.to_dict()
-    
-    return render_template("product-page.html", product=DATA)
 
+@app.route("/browse-products/product-page", methods= ['POST'])
+def product_page():
+  DATA = request.form.to_dict()
+
+  return render_template("product-page.html", product=DATA)
+
+@app.route("/browse-products/product-page/receipt", methods=['POST'])
+def receipt():
+  DATA = request.form.to_dict()
+
+  ORDERS.append(DATA)
+
+  return render_template("receipt.html", order=DATA)
+
+@app.route("/orders")
+def orders():
+  return ORDERS
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', debug=True)

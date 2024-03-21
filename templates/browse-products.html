@@ -27,6 +27,7 @@
         margin: 0 auto;
         margin-top: 10px;
         margin-bottom: 10px;
+        border-radius: 20px
       }
 
         #product-image {
@@ -36,7 +37,7 @@
 
         #products {
           display: flex;
-          justify-content:space-around;
+          justify-content: space-around;
           flex-wrap: wrap;
         }
 
@@ -44,6 +45,10 @@
           border: solid;
           border-width: 1px;
           margin: 10px
+        }
+      
+        #product-details {
+          text-align: center;
           
         }
       }
@@ -52,7 +57,7 @@
   <body>
     <h1>The Phone Shop</h1>
 
-    <img src"/static/ThePhoneShop Banner.png" >
+    <a href="/"><img src="/static/ThePhoneShop Banner.png"></a>
 
     <h2>Products</h2>
     <div id="products">  
@@ -62,7 +67,7 @@
           <img id="product-image" src={{product['image']}}>
 
           <div id="product-details">
-            {{product['name']}}
+            {{product['name']}}<br>
             {{product['price']}}
 
             <form action='/browse-products/product-page' method="post"> 
@@ -72,6 +77,8 @@
               <input type="hidden" name="desc" value="{{product['desc']}}">
               <input type="submit" value="Buy">
             </form>
+
+          </div>
         </div>
 
         
